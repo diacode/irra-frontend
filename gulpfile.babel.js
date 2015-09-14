@@ -24,7 +24,11 @@ gulp.task('webpack:server', () => {
     // webpack-dev-server options
     publicPath: webpackConfig.output.publicPath,
     hot: true,
-    stats: { colors: true }
+    stats: { colors: true },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   });
 
   server.listen(3001, "0.0.0.0", function() {});
